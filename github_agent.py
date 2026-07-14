@@ -11,7 +11,7 @@ from mcp import StdioServerParameters
 
 st.set_page_config(page_title="🐙 GitHub MCP Agent", page_icon="🐙", layout="wide")
 
-st.markdown("<h1 class='main-header'>🐙 GitHub MCP Agent</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='main-header'> GitHub MCP Agent</h1>", unsafe_allow_html=True)
 st.markdown("Explore GitHub repositories with natural language using the Model Context Protocol")
 
 with st.sidebar:
@@ -98,6 +98,10 @@ async def run_github_agent(message):
                     - Use markdown formatting for better readability
                     - Present numerical data in tables when appropriate
                     - Include links to relevant GitHub pages when helpful
+                    - Describe the context of issues, PRs, and repository activity clearly
+                    - answer the user's query based on the repository specified, and provide actionable insights
+                    - Avoid speculation or unrelated information. If the query is unclear, ask for clarification.
+                    - Provide the most relevant information about the repository, issues, and PRs based on the user's query.
                 """),
                 markdown=True,
             )
