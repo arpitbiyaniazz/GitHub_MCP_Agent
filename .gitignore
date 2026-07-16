@@ -1,1 +1,21 @@
-/venv
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local configuration and secrets
+.env
+.streamlit/secrets.toml
+
+# Databases and temporary files
+*.db
+*.db-journal
+
+# OS files
+.DS_Store
