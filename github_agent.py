@@ -21,7 +21,8 @@ st.markdown("<h1 class='main-header'>🐙 GitHub MCP Agent</h1>", unsafe_allow_h
 st.markdown("Explore GitHub repositories with natural language using the Model Context Protocol")
 
 # Initialize Redis database for persistent chat memory
-db = RedisDb(db_url="redis://localhost:6379")
+redis_host = os.getenv("REDIS_HOST", "localhost")
+db = RedisDb(db_url=f"redis://{redis_host}:6379")
 
 def get_history_from_db(session_id: str):
     try:
