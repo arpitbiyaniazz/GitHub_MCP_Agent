@@ -75,7 +75,7 @@ with st.sidebar:
 
     st.markdown("---")
     st.header("🐙 Target Repository")
-    repo = st.text_input("Repository", value="Shubhamsaboo/awesome-llm-apps", help="Format: owner/repo")
+    repo = st.text_input("Repository", value="arpitbiyaniazz/GitHub_MCP_Agent", help="Format: owner/repo")
 
     st.markdown("---")
     st.header("💬 Chat Sessions")
@@ -192,14 +192,14 @@ if len(st.session_state.messages) == 0:
         <ol>
             <li>Enter your <strong>Mistral API key</strong> in the sidebar (powers the AI agent)</li>
             <li>Enter your <strong>GitHub token</strong> in the sidebar</li>
-            <li>Specify a target repository in the sidebar (e.g., Shubhamsaboo/awesome-llm-apps)</li>
+            <li>Specify a target repository in the sidebar (e.g., arpitbiyaniazz/GitHub_MCP_Agent)</li>
             <li>Use the chat input below to ask questions about the repository</li>
         </ol>
         <p><strong>How it works:</strong></p>
         <ul>
             <li>Uses the official GitHub MCP server via Docker for real-time access to GitHub API</li>
             <li>AI Agent (powered by Mistral) interprets your queries and calls appropriate GitHub APIs</li>
-            <li>Agno SQLite storage saves your conversation context, enabling follow-up questions</li>
+            <li>Agno RedisDB storage saves your conversation context, enabling follow-up questions</li>
         </ul>
         </div>""", 
         unsafe_allow_html=True
