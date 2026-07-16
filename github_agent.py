@@ -10,6 +10,10 @@ from agno.run.agent import RunOutput
 from agno.tools.mcp import MCPTools
 from mcp import StdioServerParameters
 from agno.db.redis import RedisDb
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 st.set_page_config(page_title="🐙 GitHub MCP Agent", page_icon="🐙", layout="wide")
 
@@ -48,13 +52,23 @@ if "messages" not in st.session_state:
 with st.sidebar:
     st.header("🔑 Authentication")
 
-    Mistral_API_Key = st.text_input("Mistral API Key", type="password",
-    help="Required for the AI agent to interpret queries and format results")
+    default_mistral = os.getenv("MISTRAL_API_KEY", "")
+    Mistral_API_Key = st.text_input(
+        "Mistral API Key", 
+        value=default_mistral,
+        type="password",
+        help="Required for the AI agent to interpret queries and format results"
+    )
     if Mistral_API_Key:
         os.environ["MISTRAL_API_KEY"] = Mistral_API_Key
     
-    github_token = st.text_input("GitHub Token", type="password", 
-    help="Create a token with repo scope at github.com/settings/tokens")
+    default_github = os.getenv("GITHUB_TOKEN", "")
+    github_token = st.text_input(
+        "GitHub Token", 
+        value=default_github,
+        type="password", 
+        help="Create a token with repo scope at github.com/settings/tokens"
+    )
     if github_token:
         os.environ["GITHUB_TOKEN"] = github_token
 
