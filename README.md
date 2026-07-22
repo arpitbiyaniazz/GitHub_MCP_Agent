@@ -84,6 +84,5 @@ Since the application requires a Redis server and needs to interact with the hos
    ```bash
    docker compose up --build -d
    ```
-3. Open **http://localhost:8501** in your browser.
 
 This will build the application image, launch the Redis container, mount the Docker socket (`/var/run/docker.sock`) into the application container, load your API keys from `.env`, and link both containers on a shared network.
